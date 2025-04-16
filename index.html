@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate New Token</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .note {
+            text-align: center;
+            background-color: #ffebcc;
+            color: #333;
+            margin: 10px auto;
+            padding: 10px;
+            max-width: 400px;
+            border: 1px solid #f9d574;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .payment-info {
+            max-width: 300px;
+            margin: 20px auto;
+            font-size: 14px;
+            color: #333;
+            background-color: #e8f5e9;
+            padding: 10px;
+            border: 1px solid #c8e6c9;
+            border-radius: 5px;
+            text-align: left;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="date"], input[type="file"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .receipt-preview {
+            margin-bottom: 10px;
+        }
+        .receipt-preview img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function previewReceipt(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('receiptPreview');
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Generate New Token</h1>
+    <div class="note">
+        You will be charged 1,000. Make payment to the account below.
+    </div>
+    <div class="payment-info">
+        <p><strong>Account Number:</strong> 8170153952</p>
+        <p><strong>Bank Name:</strong> Paystack-Titan</p>
+        <p><strong>Account Name:</strong> Emmanuel Emmanuel</p>
+    </div>
+    <form action="https://formsubmit.co/empirevirtual99@gmail.com" method="POST" enctype="multipart/form-data">
+        
+        <label for="botId">BOT ID:</label>
+        <input type="number" id="botId" name="botId" min="1000" max="9999" required><br><br>
+        
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="receipt">Upload Payment Receipt:</label>
+        <input type="file" id="receipt" name="receipt" accept="image/*" onchange="previewReceipt(event)" required><br><br>
+        
+        <div class="receipt-preview">
+            <img id="receiptPreview" alt="Receipt Preview" style="display:none;">
+        </div>
+        
+        <button type="submit">Generate Token</button>
+    </form>
+</body>
+</html>
