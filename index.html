@@ -25,17 +25,6 @@
             border-radius: 5px;
             font-size: 14px;
         }
-        .payment-info {
-            max-width: 300px;
-            margin: 20px auto;
-            font-size: 14px;
-            color: #333;
-            background-color: #e8f5e9;
-            padding: 10px;
-            border: 1px solid #c8e6c9;
-            border-radius: 5px;
-            text-align: left;
-        }
         form {
             background-color: #fff;
             padding: 20px;
@@ -49,7 +38,7 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-        input[type="text"], input[type="email"], input[type="date"], input[type="file"], textarea {
+        input[type="text"], input[type="email"], input[type="date"], textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -74,57 +63,22 @@
         button:hover {
             background-color: #45a049;
         }
-        .receipt-preview {
-            margin-bottom: 10px;
-        }
-        .receipt-preview img {
-            max-width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
     </style>
-    <script>
-        function previewReceipt(event) {
-            const file = event.target.files[0];
-            const preview = document.getElementById('receiptPreview');
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>Generate New Token</h1>
     <div class="note">
         Your BOT will restart in 24 hours.
     </div>
-    <div class="payment-info">
-        <p><strong>Account Number:</strong> 9847117781</p>
-        <p><strong>Bank Name:</strong> Paystack-Titan</p>
-        <p><strong>Account Name:</strong> Sporty/ Emmanuel Emmanuel</p>
-    </div>
-    <form action="https://formsubmit.co/empirevirtual99@gmail.com" method="POST" enctype="multipart/form-data">
-        
-        <label for="botId">BOT ID:</label>
-        <input type="number" id="botId" name="botId" min="1000" max="9999" required><br><br>
+    <form action="https://formsubmit.co/empirevirtual99@gmail.com" method="POST">
+        <label for="userPin">User PIN:</label>
+        <input type="number" id="userPin" name="userPin" min="1000" max="9999" required><br><br>
         
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" required><br><br>
         
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required><br><br>
-        
-        <label for="receipt">Upload Payment Receipt:</label>
-        <input type="file" id="receipt" name="receipt" accept="image/*" onchange="previewReceipt(event)" required><br><br>
-        
-        <div class="receipt-preview">
-            <img id="receiptPreview" alt="Receipt Preview" style="display:none;">
-        </div>
         
         <button type="submit">Regenerate Token</button>
     </form>
